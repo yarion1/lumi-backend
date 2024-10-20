@@ -15,8 +15,8 @@ Antes de iniciar, certifique-se de ter os seguintes softwares instalados:
 Primeiro, clone o repositório do projeto:
 
 ```sh
-$ git clone <[URL_DO_REPOSITORIO](https://github.com/yarion1/lumi-backend)>
-$ cd <lumi-backend>
+$ git clone https://github.com/yarion1/lumi-backend
+$ cd lumi-backend
 ```
 
 ### 2. Instale as Dependências

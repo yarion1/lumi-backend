@@ -27,6 +27,8 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgres://lumi:password@db:5432/energy_db
+    volumes:
+      - ./faturas:/app/faturas
 
   pgadmin:
     image: dpage/pgadmin4

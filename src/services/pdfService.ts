@@ -202,10 +202,14 @@ export const processSingleInvoice = async (filePath: string) => {
             });
         }
 
-        await invoiceRepository.createInvoice({
-            ...invoiceData,
-            consumerId: consumer.id,
-        });
+        try {
+            await invoiceRepository.createInvoice({
+                ...invoiceData,
+                consumerId: consumer.id,
+            });
+        } catch (error) {
+            console.error('Erro ao inserir a fatura no banco de dados:', error);
+        }
 
     } catch (error) {
 
@@ -214,8 +218,9 @@ export const processSingleInvoice = async (filePath: string) => {
 
 const invoiceQueue = new Queue('invoiceQueue', {
     redis: {
-        host: 'localhost',
+        host: 'redis',
         port: 6379,
+        maxRetriesPerRequest: 10,
     },
 });
 

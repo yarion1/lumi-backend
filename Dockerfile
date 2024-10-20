@@ -7,8 +7,10 @@ RUN yarn install
 
 COPY . .
 
+RUN npx prisma generate
+
 RUN yarn build
 
-CMD ["yarn", "start"]
-
 EXPOSE 3000
+
+CMD ["sh", "-c", "npx prisma migrate deploy && yarn start"]

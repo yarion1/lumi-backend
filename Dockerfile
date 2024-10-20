@@ -7,6 +7,8 @@ RUN yarn install
 
 COPY . .
 
+COPY .env.example .env
+
 RUN npx prisma generate
 
 RUN yarn build
